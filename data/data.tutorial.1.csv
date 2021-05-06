@@ -1,0 +1,7 @@
+Forecast    Temp    Wind    Humidity    GoForWalk
+Overcase    Low     High    Weak        False
+Rain        High    Weak    High        False
+Overcast    Hot     High    Weak        True
+Rain        Mild    High    Weak        True
+Rain        Cool    Normal  Weak        True
+Overcast    Cool    Normal  Strong      True

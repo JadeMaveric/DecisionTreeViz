@@ -1,0 +1,8 @@
+-       -           -       -       -       -
+Round   Triangle    Round   Purple  Yes     No
+Square  Square      Square  Green   Yes     No
+Square  Triangle    Round   Yellow  Yes     Yes
+Round   Triangle    Round   Green   No      No
+Square  Square      Round   Yellow  Yes     Yes
+Square  Circle      Round   Purple  No      No
+Round   Circle      Square  Purple  Yes     Yes

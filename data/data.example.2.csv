@@ -1,0 +1,6 @@
+Size    Color   Shape       Class
+Big     Red     Circle      False
+Small   Red     Triangle    False
+Small   Red     Circle      True
+Big     Blue    Circle      False
+Small   Blue    Circle      True

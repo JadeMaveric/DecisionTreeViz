@@ -1,0 +1,6 @@
+Sky     AirTemp Humidity  Wind    Water  Forecast   EnjoySport
+Sunny   Warm    Normal    Strong  Warm   Same       true
+Sunny   Warm    High      Strong  Warm   Same       true
+Rainy   Cold    High      Strong  Warm   Change     false
+Sunny   Warm    High      Strong  Cool   Change     true
+

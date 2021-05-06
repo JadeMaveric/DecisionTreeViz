@@ -1,0 +1,9 @@
+Visitor Meal    Cost        Vegan   AllergicReaction
+Alice   Dinner  Cheap       No      No
+Bob     Lunch   Expensive   Yes     No
+Alice   Dinner  Cheap       Yes     Yes
+Bob     Lunch   Expensive   No      No
+Alice   Dinner  Cheap       Yes     Yes
+Bob     Lunch   Cheap       No      No
+Alice   Lunch   Expensive   Yes     Yes
+Bob     Dinner  Expensive   Yes     Yes
