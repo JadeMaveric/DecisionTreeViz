@@ -219,7 +219,7 @@ if dataset is not None:
 else:
     st.header("Usage Instructions")
     st.markdown("""
-        1. Select your space separated files (need inspiration? check [this](https://github.com/JadeMaveric/DecisionTreeViz))
+        1. Select your space separated files (need inspiration? check [this](https://github.com/JadeMaveric/DecisionTreeViz/blob/main/data/data.tutorial.3.csv))
         2. Choose a metric
         3. Wait for it to finish building the tree
         4. You should see the image of the tree and a list of nodes
