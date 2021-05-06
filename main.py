@@ -7,7 +7,7 @@ from math import log2
 
 st.set_page_config( layout='centered' )
 st.title("DecisionTree Visualiser")
-st.subheader("By @JuliusAlphonso")
+st.subheader("By [@JuliusAlphonso](https://twitter.com/JuliusAlphonso) | Fork me on [GitHub](https://github.com/JadeMaveric/DecisionTreeViz)")
 
 # -------- FUNCTIONS -------- #
 def format_data(dataset):
@@ -190,12 +190,13 @@ metrics = {'Info Gain': info_gain, 'Missclassification Error': missclassificatio
 
 # -------- MAIN -------- #
 dataset = st.sidebar.file_uploader("Choose a file")
+remote_dataset = st.sidebar.text_input("Remote SSV")
 nodes_processed = st.sidebar.progress(0)
 progress_text = st.sidebar.empty()
 metric_selector = st.sidebar.selectbox("Metric", list(metrics.keys()))
 
-if dataset is not None:
-    df = format_data(dataset)
+if dataset is not None or remote_dataset is not "":
+    df = format_data(dataset) if dataset else format_data(remote_dataset)
     total_count = len(df)
     progress_text.text(f"{labeled_count}/{total_count} datapoints processed")
 
@@ -219,7 +220,8 @@ if dataset is not None:
 else:
     st.header("Usage Instructions")
     st.markdown("""
-        1. Select your space separated files (need inspiration? check [this](https://github.com/JadeMaveric/DecisionTreeViz/blob/main/data/data.tutorial.3.csv))
+        1. Select your space separated file
+           * need inspiration? Paste [this](https://raw.githubusercontent.com/JadeMaveric/DecisionTreeViz/main/data/data.tutorial.3.csv) into "Remote SSV"
         2. Choose a metric
         3. Wait for it to finish building the tree
         4. You should see the image of the tree and a list of nodes
