@@ -1,0 +1,15 @@
+Color,Type,Doors,Tyres,Class
+Green,Car,4,Whitewall,Positive
+Green,Minivan,4,Blackwall,Negative
+Blue,Car,2,Whitewall,Negative
+Blue,SUV,4,Whitewall,Negative
+Red,SUV,2,Blackwall,Positive
+Red,Minivan,2,Whitewall,Positive
+Red,Car,2,Blackwall,Negative
+Green,Minivan,2,Blackwall,Negative
+Green,SUV,4,Blackwall,Positive
+Green,Car,4,Whitewall,Positive
+Blue,SUV,4,Blackwall,Negative
+Red,Car,2,Blackwall,Positive
+Blue,SUV,4,Whitewall,Positive
+Green,Minivan,2,Whitewall,Negative

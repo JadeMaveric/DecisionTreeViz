@@ -1,0 +1,15 @@
+age,income,student,creditrating,buy
+less30n40,medium,yes,excellent,yes
+gt40,high,no,excellent,yes
+less30n40,low,no,fair,yes
+bet30n40,medium,yes,fair,no
+gt40,high,no,excellent,yes
+bet30n40,low,yes,fair,no
+bet30n40,medium,no,excellent,no
+bet30n40,medium,no,fair,yes
+less30n40,medium,yes,excellent,no
+less30n40,high,no,excellent,yes
+gt40,high,no,fair,no
+less30n40,medium,yes,fair,yes
+gt40,low,no,excellent,no
+gt41,low,no,excellent,yes

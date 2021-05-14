@@ -7,12 +7,11 @@ from math import log2
 
 st.set_page_config( layout='centered' )
 st.title("DecisionTree Visualiser")
-st.subheader("By [@JuliusAlphonso](https://twitter.com/JuliusAlphonso) | Fork me on [GitHub](https://github.com/JadeMaveric/DecisionTreeViz)")
+st.subheader("By [@JuliusAlphonso](https://twitter.com/JuliusAlphonso) | Fork/Star on [GitHub](https://github.com/JadeMaveric/DecisionTreeViz)")
 
 # -------- FUNCTIONS -------- #
 def format_data(dataset):
-    df = pd.read_csv(dataset, sep='\s+')
-
+    df = pd.read_csv(dataset)
     attr_cols = df.columns[:-1]
     targ_cols = df.columns[-1]
     df[targ_cols] = df[targ_cols].apply(
@@ -190,13 +189,40 @@ metrics = {'Info Gain': info_gain, 'Missclassification Error': missclassificatio
 
 # -------- MAIN -------- #
 dataset = st.sidebar.file_uploader("Choose a file")
-remote_dataset = st.sidebar.text_input("Remote SSV")
+remote_dataset = st.sidebar.text_input("Remote CSV")
 nodes_processed = st.sidebar.progress(0)
 progress_text = st.sidebar.empty()
 metric_selector = st.sidebar.selectbox("Metric", list(metrics.keys()))
 
-if dataset is not None or remote_dataset is not "":
-    df = format_data(dataset) if dataset else format_data(remote_dataset)
+if dataset is not None:
+    df = format_data(dataset)
+elif remote_dataset != "":
+    df = format_data(remote_dataset)
+else:
+    st.header("Usage Instructions")
+    st.markdown("""
+        1. In the sidebar, select your csv file
+        2. Choose a metric
+        3. Wait for it to finish building the tree
+        4. You should see the image of the tree and a list of nodes
+        5. Select a node from the drop down to see the metrics calculated at that node
+        """)
+
+    st.header("Don't have a dataset? Load a demo")
+    demosets = {
+        'Tennis': 'https://raw.githubusercontent.com/JadeMaveric/DecisionTreeViz/main/data/tennis.csv',
+        'Cars': 'https://raw.githubusercontent.com/JadeMaveric/DecisionTreeViz/main/data/cars.csv',
+        'Customers': 'https://raw.githubusercontent.com/JadeMaveric/DecisionTreeViz/main/data/customers.csv'
+    }
+
+    dataset = st.selectbox('Dataset', ['None']+list(demosets.keys()))
+    
+    if dataset != 'None':
+        df = format_data(demosets[dataset])
+    else:
+        df = None
+
+if df is not None:
     total_count = len(df)
     progress_text.text(f"{labeled_count}/{total_count} datapoints processed")
 
@@ -217,14 +243,4 @@ if dataset is not None or remote_dataset is not "":
     st.write(data)
     select_splitting_attr(data, True)
 
-else:
-    st.header("Usage Instructions")
-    st.markdown("""
-        1. Select your space separated file
-           * need inspiration? Paste [this](https://raw.githubusercontent.com/JadeMaveric/DecisionTreeViz/main/data/data.tutorial.3.csv) into "Remote SSV"
-        2. Choose a metric
-        3. Wait for it to finish building the tree
-        4. You should see the image of the tree and a list of nodes
-        5. Select a node from the drop down to see the metrics calculated at that node
-        """)
 
